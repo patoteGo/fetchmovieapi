@@ -7,8 +7,6 @@ const Sidebar = () => {
             <Cardside title="Actores Favoritos"/>
             <Cardside title="Series Favoritos"/>
         </div>
-
-        
     )
 }
 
