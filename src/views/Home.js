@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 
 import { Link } from "react-router-dom";
 
-import { Context } from "../store/appContext";
-import MovieIndex from "./movies/Index"
+import { Context } from "@store/appContext";
+import MovieIndex from "@views/movies/Index"
 function Home() {
     const { store } = useContext(Context);
     return(
