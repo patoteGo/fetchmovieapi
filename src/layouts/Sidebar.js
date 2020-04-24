@@ -1,7 +1,4 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image'
 import Cardside from '@views/sidebar/Cardside'
 const Sidebar = () => {
     return (
