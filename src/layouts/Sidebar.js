@@ -2,7 +2,7 @@ import React from 'react';
 import Cardside from '@views/sidebar/Cardside'
 const Sidebar = () => {
     return (
-       <div className="fixed-bottom offset-9 col-3 sm-d-block">
+       <div className="">
             <Cardside title="Peliculas Favoritas"/>
             <Cardside title="Actores Favoritos"/>
             <Cardside title="Series Favoritos"/>
