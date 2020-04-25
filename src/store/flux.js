@@ -1,33 +1,42 @@
-const URL_API = 'https://api.themoviedb.org/3';
-const TOKEN = '?api_key=7aa5c83c18833d3dd238b20bc192d730';
-const LANG = '&language=es-ES';
-// https://api.themoviedb.org/3/movie/popular?api_key=7aa5c83c18833d3dd238b20bc192d730&language=en-US&page=1
+
+import { fetchMovies, fetchSeries, fetchActors} from '@api/request'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
       movies: [],
-      people: [],
-      genre: [],
+      peoples: [],
+      tvs: [],
       active: undefined
 		},
 		actions: {
-      loadMovies: () => {
-        fetch(`${URL_API}/movie/popular${TOKEN}${LANG}`).then((resp) => resp.json())
+      loadAll: () => {
+        fetchMovies()
         .then((data) => {
           console.log(data);
           getActions().setListMovies(data.results);
         })
+
+        fetchActors()
+        .then((data) => {
+          console.log(data);
+          getActions().setListPeoples(data.results);
+        })
+
+        fetchSeries()
+        .then((data) => {
+          console.log(data);
+          getActions().setListTvs(data.results);
+        })
       },
 
-      // loadMovie: (id) => {
-      //   fetch(`${URL_API}/character/${id}`).then((resp) => resp.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //     setStore({ active: data });
-      //   })
-      // },
       setListMovies: (lista) => {
         setStore({ movies: lista });
+      },
+      setListTvs: (lista) => {
+        setStore({ tvs: lista });
+      },
+      setListPeoples: (lista) => {
+        setStore({ peoples: lista });
       },
 		}
 	};

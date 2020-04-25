@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Context } from "@store/appContext";
-import Cardmovie from '@views/movies/Cardmovie'
+import Cardactors from '@views/actors/Cardactors'
 import Header from '@lay/Header'
 import Sidebar from '@lay/Sidebar'
 const Index = () => {
@@ -18,10 +18,10 @@ const Index = () => {
                     <Row>
                     { 
                     
-                    store.movies.map((movie,index) => {
+                    store.peoples.map((people,index) => {
                             return (
                                 <Col md={4} key={index}>
-                                    <Cardmovie movie={movie} />
+                                    <Cardactors people={people} />
                                 </Col>   
                             )
                     })
