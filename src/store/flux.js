@@ -1,36 +1,49 @@
 
 import { fetchMovies, fetchSeries, fetchActors} from '@api/request'
+import { URL } from '@api/config'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
       movies: [],
       peoples: [],
       tvs: [],
-      active: undefined
+      active_tvs: undefined,
+      active_peoples: undefined,
+      active_movies: undefined,
+      lang: URL.LANG_ES,
+      page: URL.PAGE
 		},
 		actions: {
-      loadAll: () => {
-        fetchMovies()
+      
+
+      loadAll: (lang, page) => {
+        
+        fetchMovies(lang,page)
         .then((data) => {
-          console.log(data);
-          getActions().setListMovies(data.results);
+          console.log('movies',data);
+          getActions().setListMovies(data.results, data);
         })
 
-        fetchActors()
+        fetchActors(lang)
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           getActions().setListPeoples(data.results);
         })
 
-        fetchSeries()
+        fetchSeries(lang)
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           getActions().setListTvs(data.results);
         })
       },
+      page: (page) =>{
+        setStore({ page: page})
+      },
+      loadMovie: () => {
 
-      setListMovies: (lista) => {
-        setStore({ movies: lista });
+      },
+      setListMovies: (lista, lista2) => {
+        setStore({ movies: lista, paginatemovies: lista2 });
       },
       setListTvs: (lista) => {
         setStore({ tvs: lista });

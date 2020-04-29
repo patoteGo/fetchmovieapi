@@ -1,15 +1,25 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink} from 'react-router-dom'
-
-
+import { Context } from "@store/appContext";
+import { URL } from '../api/config'
 const Header = () => {
+    const [ state ] = useContext(Context);
     const activeStyle = {
         fontWeight: "bold",
-        
       };
+
+    const handleLang = (e) => {
+        console.log('select', e.target.value);
+        if(e.target.value === 'INGLES'){
+            // console.log('cambios',state, setState);
+            state.actions.loadAll(URL.LANG_EN, state.store.page); 
+        } else{
+            state.actions.loadAll(URL.LANG_ES, state.store.page); 
+        }
+    }
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#home">PELIS Y SERIES</Navbar.Brand>
@@ -26,10 +36,9 @@ const Header = () => {
                 </Nav>
 
                 <Nav>
-                <Form.Control as="select" custom>
+                <Form.Control onChange={handleLang} as="select" custom>
                     <option>ESPAÑOL</option>
                     <option>INGLES</option>
-               
                     </Form.Control>
                     
                 </Nav>

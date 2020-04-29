@@ -7,14 +7,14 @@ import Cardtv from '@views/tvshows/Cardtv'
 import Header from '@lay/Header'
 import Sidebar from '@lay/Sidebar'
 const Index = () => {
-    const { store } = useContext(Context);
+    const [{ store, setState }] = useContext(Context);
     return (
 
      <div>
          <Header/>
          <Container>
             <Row> 
-                <Col md={9}>
+                <Col md={12}>
                     <Row>
                     { 
                     
@@ -28,9 +28,9 @@ const Index = () => {
                     }
                     </Row>
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}>
                     <Sidebar/>
-                </Col>
+                </Col> */}
             </Row>
          </Container>
      </div>  
