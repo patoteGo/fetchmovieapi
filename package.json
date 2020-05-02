@@ -1,6 +1,7 @@
 {
   "name": "fetchmovieapi",
   "version": "0.1.0",
+  "homepage": "https://patoteGo.github.io/fetchmovieapi",
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.6.4",
@@ -8,6 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "gh-pages": "^2.2.0",
     "jquery": "^3.5.0",
     "node-sass": "^4.14.0",
     "popper.js": "^1.16.1",
@@ -22,6 +24,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
