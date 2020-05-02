@@ -5,27 +5,21 @@ import Col from 'react-bootstrap/Col'
 import { Context } from "@store/appContext";
 import Cardmovie from '@views/movies/Cardmovie'
 import Header from '@lay/Header'
-import Paginate from './../../layouts/Paginate';
+import Paginate from '@lay/PaginateMovie';
 // import Sidebar from '@lay/Sidebar'
 const Index = () => {
     const [ state ] = useContext(Context);
     console.log('store', state);
     // const realMovies = store.movies.results;
     // console.log(realMovies);
-    const handlePage = (e) => {
-        state.actions.page(e);
-        state.actions.loadAll(state.store.lang, state.store.page); 
-        // console.log('store2', state);
-    }
     return (
 
      <div>
          <Header/>
          <Container>
+            <Paginate/>
             <Row> 
-                <div>
-                    <button onClick={() => handlePage('&page=2')}>PAGE 2</button>
-                </div>
+              
 
                 <Col md={'12'}>
                     <Row>
@@ -33,7 +27,7 @@ const Index = () => {
                         
                         state.store.movies.map((movie,index) => {
                             return (
-                                <Col md={4} key={index}>
+                                <Col md={3} key={index}>
                                     <Cardmovie movie={movie} />
                                 </Col>   
                             )
@@ -42,9 +36,6 @@ const Index = () => {
                     }
                     </Row>
                 </Col>
-                {/* <Col md={3}>
-                    <Sidebar/>
-                </Col> */}
             </Row>
             <Paginate/>
          </Container>

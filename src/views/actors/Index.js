@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import { Context } from "@store/appContext";
 import Cardactors from '@views/actors/Cardactors'
 import Header from '@lay/Header'
-import Sidebar from '@lay/Sidebar'
+import Paginate from '@lay/PaginateActor';
 const Index = () => {
     const [{ store, setState }] = useContext(Context);
     return (
@@ -13,6 +13,7 @@ const Index = () => {
      <div>
          <Header/>
          <Container>
+            <Paginate/>
             <Row> 
                 <Col md={12}>
                     <Row>
@@ -20,7 +21,7 @@ const Index = () => {
                     
                     store.peoples.map((people,index) => {
                             return (
-                                <Col md={4} key={index}>
+                                <Col md={2} key={index}>
                                     <Cardactors people={people} />
                                 </Col>   
                             )
@@ -32,6 +33,7 @@ const Index = () => {
                     <Sidebar/>
                 </Col> */}
             </Row>
+            <Paginate/>
          </Container>
      </div>  
 

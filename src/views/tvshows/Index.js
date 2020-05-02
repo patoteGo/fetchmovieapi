@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import { Context } from "@store/appContext";
 import Cardtv from '@views/tvshows/Cardtv'
 import Header from '@lay/Header'
-import Sidebar from '@lay/Sidebar'
+import Paginate from '@lay/PaginateTv';
 const Index = () => {
     const [{ store, setState }] = useContext(Context);
     return (
@@ -13,6 +13,7 @@ const Index = () => {
      <div>
          <Header/>
          <Container>
+         <Paginate/>
             <Row> 
                 <Col md={12}>
                     <Row>
@@ -20,7 +21,7 @@ const Index = () => {
                     
                     store.tvs.map((tv,index) => {
                             return (
-                                <Col md={4} key={index}>
+                                <Col md={3} key={index}>
                                     <Cardtv tv={tv} />
                                 </Col>   
                             )
@@ -32,6 +33,7 @@ const Index = () => {
                     <Sidebar/>
                 </Col> */}
             </Row>
+            <Paginate/>
          </Container>
      </div>  
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
-
+import { Link } from "react-router-dom";
 const Cardactors = ( { people }) => {
     return (
         <Card style={{ margin: '10px 0px'}}>
@@ -17,7 +17,9 @@ const Cardactors = ( { people }) => {
             })
             }
             </Card.Text>
-            <Button variant="info">Ver detalles</Button>
+            <Link to={`/actor/${people.id}`} >
+                <Button variant="info">Ver detalles</Button>
+            </Link>
         </Card.Body>
         </Card>
     )

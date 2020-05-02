@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import React, { useContext } from 'react'
-import { NavLink} from 'react-router-dom'
+import { NavLink, Link} from 'react-router-dom'
 import { Context } from "@store/appContext";
 import { URL } from '../api/config'
 const Header = () => {
@@ -16,13 +16,15 @@ const Header = () => {
         if(e.target.value === 'INGLES'){
             // console.log('cambios',state, setState);
             state.actions.loadAll(URL.LANG_EN, state.store.page); 
+            state.actions.loadMovie(state.store.active_tv, URL.LANG_EN);
         } else{
             state.actions.loadAll(URL.LANG_ES, state.store.page); 
+            state.actions.loadMovie(state.store.active_tv, URL.LANG_ES);
         }
     }
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">PELIS Y SERIES</Navbar.Brand>
+            <Navbar.Brand ><Link to="/">PELIS Y SERIES</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             

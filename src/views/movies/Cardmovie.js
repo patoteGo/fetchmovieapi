@@ -1,8 +1,9 @@
 import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
-
+import { Link } from "react-router-dom";
 const Cardmovie = ( { movie }) => {
+    
     return (
         <Card style={{ margin: '10px 0px'}}>
         <Card.Img variant="top" src={'https://image.tmdb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path} />
@@ -11,7 +12,9 @@ const Cardmovie = ( { movie }) => {
             <Card.Text style={{ height: '100px', overflow: 'hidden' }}>
             {movie.overview}
             </Card.Text>
-            <Button variant="info">Ver detalles</Button>
+            <Link to={`/movie/${movie.id}`} >
+                <Button variant="info">Ver detalles</Button>
+            </Link>
         </Card.Body>
         </Card>
     )

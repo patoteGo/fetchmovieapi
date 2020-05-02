@@ -1,7 +1,7 @@
 import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
-
+import { Link } from "react-router-dom";
 const Cardtv = ( { tv }) => {
     return (
         <Card style={{ margin: '10px 0px'}}>
@@ -11,7 +11,9 @@ const Cardtv = ( { tv }) => {
             <Card.Text style={{ height: '100px', overflow: 'hidden' }}>
             {tv.overview}
             </Card.Text>
-            <Button variant="info">Ver detalles</Button>
+            <Link to={`/tv/${tv.id}`} >
+                <Button variant="info">Ver detalles</Button>
+            </Link>
         </Card.Body>
         </Card>
     )
