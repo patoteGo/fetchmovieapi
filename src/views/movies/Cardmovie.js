@@ -2,6 +2,7 @@ import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { URLBASE } from './../../api/config'
 const Cardmovie = ( { movie }) => {
     
     return (
@@ -12,7 +13,7 @@ const Cardmovie = ( { movie }) => {
             <Card.Text style={{ height: '100px', overflow: 'hidden' }}>
             {movie.overview}
             </Card.Text>
-            <Link to={`/movie/${movie.id}`} >
+            <Link to={`/${URLBASE}/movie/${movie.id}`} >
                 <Button variant="info">Ver detalles</Button>
             </Link>
         </Card.Body>

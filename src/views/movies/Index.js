@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Context } from "@store/appContext";
-import Cardmovie from '@views/movies/Cardmovie'
-import Header from '@lay/Header'
-import Paginate from '@lay/PaginateMovie';
+import { Context } from "./../../store/appContext";
+import Cardmovie from './../movies/Cardmovie'
+import Header from './../../layouts/Header'
+import Paginate from './../../layouts/PaginateMovie';
 // import Sidebar from '@lay/Sidebar'
 const Index = () => {
     const [ state ] = useContext(Context);

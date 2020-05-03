@@ -4,7 +4,8 @@ import Form from 'react-bootstrap/Form'
 import React, { useContext } from 'react'
 import { NavLink, Link} from 'react-router-dom'
 import { Context } from "@store/appContext";
-import { URL } from '../api/config'
+import { URL, URLBASE } from '../api/config'
+
 const Header = () => {
     const [ state ] = useContext(Context);
     const activeStyle = {
@@ -24,16 +25,16 @@ const Header = () => {
     }
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand ><Link to="/">PELIS Y SERIES</Link></Navbar.Brand>
+            <Navbar.Brand ><Link to={`/${URLBASE}/`}>PELIS Y SERIES</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             
                 <Nav className="mr-auto">
-                    <NavLink className="px-3 text-light" exact to="/"
+                    <NavLink className="px-3 text-light" exact to={`/${URLBASE}/`}
                         activeStyle={activeStyle}>PELICULAS</NavLink>
-                    <NavLink className="px-3 text-light" exact to="/tv"
+                    <NavLink className="px-3 text-light" exact to={`/${URLBASE}/tv`}
                         activeStyle={activeStyle}>SERIES DE TV</NavLink>
-                    <NavLink className="px-3 text-light" exact to="/actors"
+                    <NavLink className="px-3 text-light" exact to={`/${URLBASE}/actors`}
                         activeStyle={activeStyle}>ACTORES/ACTRICES</NavLink>
                 </Nav>
 

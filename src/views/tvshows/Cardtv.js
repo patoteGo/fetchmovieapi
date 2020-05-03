@@ -2,6 +2,7 @@ import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { URLBASE } from './../../api/config'
 const Cardtv = ( { tv }) => {
     return (
         <Card style={{ margin: '10px 0px'}}>
@@ -11,7 +12,7 @@ const Cardtv = ( { tv }) => {
             <Card.Text style={{ height: '100px', overflow: 'hidden' }}>
             {tv.overview}
             </Card.Text>
-            <Link to={`/tv/${tv.id}`} >
+            <Link to={`/${URLBASE}/tv/${tv.id}`} >
                 <Button variant="info">Ver detalles</Button>
             </Link>
         </Card.Body>

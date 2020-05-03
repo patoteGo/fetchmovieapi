@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 // import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container'
-import { Context } from "@store/appContext";
-import Header from '@lay/Header'
+import { Context } from "./../../store/appContext";
+import Header from './../../layouts/Header'
 import './MovieDetail.sass';
 const MovieDetails = (props) => {
 

@@ -2,6 +2,7 @@ import React from 'react'
 import Card  from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { URLBASE } from './../../api/config'
 const Cardactors = ( { people }) => {
     return (
         <Card style={{ margin: '10px 0px'}}>
@@ -17,7 +18,7 @@ const Cardactors = ( { people }) => {
             })
             }
             </Card.Text>
-            <Link to={`/actor/${people.id}`} >
+            <Link to={`/${URLBASE}/actor/${people.id}`} >
                 <Button variant="info">Ver detalles</Button>
             </Link>
         </Card.Body>
